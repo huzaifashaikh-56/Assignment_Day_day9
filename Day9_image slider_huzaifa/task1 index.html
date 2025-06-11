@@ -1,1 +1,66 @@
-# Assignment_Day_day9
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Slider</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin-top: 50px;
+    }
+
+    #image-container {
+      width: 300px;
+      height: 200px;
+      margin: 0 auto 20px;
+      border: 2px solid #ccc;
+    }
+
+    #image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Simple Image Viewer</h1>
+  <div id="image-container">
+    <img id="slider-image" src="https://via.placeholder.com/300x200?text=Image+1" alt="Slider Image">
+  </div>
+
+  <button onclick="showPrevious()">Previous</button>
+  <button onclick="showNext()">Next</button>
+
+  <script>
+    const images = [
+      "https://via.placeholder.com/300x200?text=Image+1",
+      "https://via.placeholder.com/300x200?text=Image+2",
+      "https://via.placeholder.com/300x200?text=Image+3"
+    ];
+
+    let currentIndex = 0;
+    const sliderImage = document.getElementById("slider-image");
+
+    function showPrevious() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      sliderImage.src = images[currentIndex];
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % images.length;
+      sliderImage.src = images[currentIndex];
+    }
+  </script>
+
+</body>
+</html>
+
